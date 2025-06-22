@@ -40,19 +40,6 @@ export default function PhishingLP() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* 偽のブラウザバー */}
-      <div className="bg-gray-200 p-2 border-b">
-        <div className="flex items-center space-x-2">
-          <div className="flex space-x-1">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          </div>
-          <div className="flex-1 bg-white rounded px-3 py-1 text-sm text-gray-600">
-            🔒 https://tech0-jp.com/special-offer
-          </div>
-        </div>
-      </div>
 
       {/* ヘッダー */}
       <header className="bg-white shadow-sm sticky top-0 z-40">

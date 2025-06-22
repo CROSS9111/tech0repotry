@@ -51,7 +51,7 @@ export default function Home() {
               🎣 ログイン型フィッシング体験
             </Link>
             <Link
-              href="/phishing-lp"
+              href="/dl-lp"
               className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg transition-colors text-center"
             >
               📄 LP型フィッシング体験

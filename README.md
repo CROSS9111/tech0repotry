@@ -29,11 +29,10 @@
 - 本物そっくりのデザイン
 - フォーム送信後に詐欺警告表示
 
-### 3. LP型フィッシング体験 (`/phishing-lp`)
+### 3. LP型フィッシング体験 (`/dl-lp`)
 - **Tech0公式サイトを模倣したランディングページ**
 - 「無料ダウンロード」「限定オファー」による誘導
 - カウントダウンタイマーで緊急性を演出
-- 偽のブラウザバーでURL偽装
 - ダウンロードボタンクリック後に詐欺警告
 
 ### 4. 教育コンテンツ (`/education`)
@@ -108,7 +107,7 @@ npm run dev
 
 - **メイン画面**: http://localhost:3000
 - **ログイン型フィッシング**: http://localhost:3000/phishing
-- **LP型フィッシング**: http://localhost:3000/phishing-lp
+- **LP型フィッシング**: http://localhost:3000/dl-lp
 - **教育コンテンツ**: http://localhost:3000/education
 - **管理画面**: http://localhost:3000/admin (パスワード: `admin123`)
 
@@ -133,7 +132,7 @@ Route (app)                     Size    First Load JS
 ├ ○ /admin                     2.26 kB      107 kB
 ├ ○ /education                 3.34 kB      108 kB
 ├ ○ /phishing                  2.26 kB      103 kB
-└ ○ /phishing-lp               5.98 kB      107 kB
+└ ○ /dl-lp                     5.98 kB      107 kB
 ```
 
 ## 🎓 授業での活用方法
@@ -165,7 +164,7 @@ src/
 │   ├── admin/           # 管理画面
 │   ├── education/       # 教育コンテンツ
 │   ├── phishing/        # ログイン型フィッシング
-│   ├── phishing-lp/     # LP型フィッシング
+│   ├── dl-lp/           # LP型フィッシング
 │   ├── layout.tsx       # 共通レイアウト
 │   └── page.tsx         # メイン画面
 └── lib/
