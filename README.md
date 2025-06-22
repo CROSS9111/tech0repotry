@@ -1,36 +1,191 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# フィッシング教育デモアプリケーション
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-15.3.4-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=flat-square&logo=tailwind-css)
 
-First, run the development server:
+授業でのセキュリティ教育を目的とした、フィッシング攻撃の手口を安全に体験できるデモンストレーションアプリケーションです。
+
+## 🎯 プロジェクト概要
+
+このアプリケーションは、学生や社会人がフィッシング攻撃の危険性を実際に体験し、セキュリティ意識を向上させることを目的としています。2種類のフィッシング手法を模擬体験できる防御的なセキュリティ教育ツールです。
+
+### ⚠️ 重要な注意事項
+- **教育目的のみで使用してください**
+- 実際の認証情報は絶対に入力しないでください
+- 悪用は厳禁です
+- ローカル環境での使用を前提としています
+
+## 🚀 実装機能
+
+### 1. メイン画面 (`/`)
+- 教育デモの概要説明
+- 各フィッシング体験への案内
+- 注意事項の明示
+
+### 2. ログイン型フィッシング体験 (`/phishing`)
+- 偽の銀行ログイン画面
+- 緊急性を煽るメッセージ
+- 本物そっくりのデザイン
+- フォーム送信後に詐欺警告表示
+
+### 3. LP型フィッシング体験 (`/phishing-lp`)
+- **Tech0公式サイトを模倣したランディングページ**
+- 「無料ダウンロード」「限定オファー」による誘導
+- カウントダウンタイマーで緊急性を演出
+- 偽のブラウザバーでURL偽装
+- ダウンロードボタンクリック後に詐欺警告
+
+### 4. 教育コンテンツ (`/education`)
+- フィッシング攻撃の解説
+- 見分け方と対策方法
+- LP型・ログイン型それぞれの特徴説明
+- 被害時の対処法
+
+### 5. 管理画面 (`/admin`)
+- 利用統計の表示
+- ログイン型・LP型の試行数分別
+- 学習完了率の計算
+- データリセット機能
+- **パスワード**: `admin123`
+
+## 🛠️ 技術スタック
+
+- **フレームワーク**: Next.js 15.3.4 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS
+- **状態管理**: React Hooks
+- **データ保存**: LocalStorage (統計機能)
+- **ルーティング**: Next.js App Router
+
+## 📋 開発タスク履歴
+
+Claude Codeによる段階的な実装プロセス：
+
+### フェーズ1: 基盤構築
+- [x] Next.jsプロジェクトのセットアップ（TypeScript, Tailwind CSS含む）
+- [x] 基本的なプロジェクト構造とレイアウトの作成
+- [x] CLAUDE.mdの作成と更新
+
+### フェーズ2: コア機能実装
+- [x] フィッシング体験画面（偽ログイン画面）の実装
+- [x] 教育コンテンツ画面の実装
+- [x] 統計・管理機能の実装
+
+### フェーズ3: LP型フィッシング追加
+- [x] Tech0模倣フィッシングLPページの作成
+- [x] 詐欺警告画面の実装
+- [x] 既存システムとの統合とナビゲーション更新
+
+### フェーズ4: テスト・デプロイ
+- [x] アプリケーションのテスト実行
+- [x] GitHubリポジトリへのプッシュ
+- [x] READMEドキュメントの整備
+
+## 🚀 セットアップ・使用方法
+
+### 前提条件
+- Node.js 18.0以上
+- npm または yarn
+
+### インストール
 
 ```bash
+# リポジトリのクローン
+git clone https://github.com/CROSS9111/tech0repotry.git
+cd tech0repotry
+
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### アクセス方法
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ブラウザで以下のURLにアクセスしてください：
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **メイン画面**: http://localhost:3000
+- **ログイン型フィッシング**: http://localhost:3000/phishing
+- **LP型フィッシング**: http://localhost:3000/phishing-lp
+- **教育コンテンツ**: http://localhost:3000/education
+- **管理画面**: http://localhost:3000/admin (パスワード: `admin123`)
 
-## Learn More
+### その他のコマンド
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# プロダクションビルド
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# リンティング
+npm run lint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 型チェック
+npx tsc --noEmit
+```
 
-## Deploy on Vercel
+## 📊 ビルド統計
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+Route (app)                     Size    First Load JS
+┌ ○ /                          1.51 kB      106 kB
+├ ○ /admin                     2.26 kB      107 kB
+├ ○ /education                 3.34 kB      108 kB
+├ ○ /phishing                  2.26 kB      103 kB
+└ ○ /phishing-lp               5.98 kB      107 kB
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎓 授業での活用方法
+
+### 推奨フロー
+1. **導入**: メイン画面で注意事項の説明
+2. **体験**: ログイン型またはLP型フィッシングを体験
+3. **学習**: 自動的に教育ページに遷移し、対策を学習
+4. **振り返り**: 管理画面で統計を確認し、クラス全体の傾向を分析
+
+### 適用分野
+- 情報セキュリティ基礎講座
+- ITリテラシー教育
+- サイバーセキュリティ演習
+- 社会人向けセキュリティ研修
+
+## 🔒 セキュリティ配慮
+
+- すべてのデータはローカル（LocalStorage）に保存
+- 実際の認証情報は一切収集しない
+- 教育目的であることを明確に表示
+- 悪用防止のための警告文を各所に配置
+
+## 📁 プロジェクト構造
+
+```
+src/
+├── app/
+│   ├── admin/           # 管理画面
+│   ├── education/       # 教育コンテンツ
+│   ├── phishing/        # ログイン型フィッシング
+│   ├── phishing-lp/     # LP型フィッシング
+│   ├── layout.tsx       # 共通レイアウト
+│   └── page.tsx         # メイン画面
+└── lib/
+    └── analytics.ts     # 統計機能
+```
+
+## 🤝 貢献・フィードバック
+
+このプロジェクトは教育目的で作成されています。改善提案や教育的観点からのフィードバックを歓迎します。
+
+## 📄 ライセンス
+
+このプロジェクトは教育目的で作成されており、Claude Codeによって生成されました。
+
+---
+
+**🤖 Generated with [Claude Code](https://claude.ai/code)**
+
+**Co-Authored-By: Claude <noreply@anthropic.com>**
+
+---
+
+> ⚠️ **免責事項**: このアプリケーションは教育目的でのみ使用してください。悪用は厳禁です。フィッシング攻撃は重大な犯罪行為であり、実際に行うことは法的に処罰される可能性があります。
